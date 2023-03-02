@@ -2,7 +2,7 @@ import { JobType } from "./jobType"
 import { ResourceType } from "./resourceType"
 import { StatusType } from "./statusType"
 
-export interface Job {
+export default interface Job {
     id: string,
     name: string,
     type: JobType | string,

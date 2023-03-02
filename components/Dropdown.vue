@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, computed } from 'vue'
     const props = defineProps({
         name: String,
         selectKey: String,
-        options: Array<String>,
+        options: Array<string>,
         displayOption:  String
     })
 
@@ -11,22 +11,27 @@ import { ref, watch } from 'vue'
         'choose-option'
     ])
 
-    let chosenOption = ref<String>('')
-
-    watch(props , () => {
-        if (props.displayOption) chosenOption.value = props.displayOption
-        else chosenOption.value = props.name!
-    })
+    let chosenOption = ref<string>('')
     let opened = ref(false)
     let closable = ref(true)
+    let buttonText = computed<String>((): String => {
+        if (props.displayOption?.length! > 0) {
+            return props.displayOption!
+        }
+        else if (chosenOption.value?.length > 0) {
+            return chosenOption.value
+        }
+        else return props.name!
+    })
 
 
-    function chooseOption(key: String, option: String) {
+    function chooseOption(key: string, option: string) {
         emit('choose-option', option)
 
         opened.value = false
         chosenOption.value = option
     }
+
 </script>
 
 <template>
@@ -40,7 +45,7 @@ import { ref, watch } from 'vue'
             'shadow-sm': opened,
             'border-blue-400': opened
         }">
-            <span class="float-left">{{ chosenOption }}</span>
+            <span class="float-left">{{ buttonText }}</span>
 
             <i v-if="!opened" class="fa fa-chevron-down float-right text-sm" :class="{
             'text-blue-500': opened
