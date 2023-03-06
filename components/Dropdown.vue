@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { cli } from 'webpack';
     const props = defineProps({
         name: String,
         selectKey: String,
@@ -13,7 +14,9 @@ import { ref, computed } from 'vue'
 
     let chosenOption = ref<string>('')
     let opened = ref(false)
-    let closable = ref(true)
+    let closeable = ref(true)
+    let focusedInCounter = 0
+
     let buttonText = computed<String>((): String => {
         if (props.displayOption?.length! > 0) {
             return props.displayOption!
@@ -32,13 +35,38 @@ import { ref, computed } from 'vue'
         chosenOption.value = option
     }
 
+    function focusIn() {
+        console.log("focusing in: opened = " + opened.value + "; closeable = " + closeable.value)
+        opened.value = !opened.value
+        focusedInCounter++
+    }
+
+    function focusOut() {
+        console.log("focusing out: opened = " + opened.value + "; closeable = " + closeable.value)   
+        opened.value = closeable.value
+        focusedInCounter = 0
+    }
+
+    function clicked() {
+        console.log("clicked")
+        if ((focusedInCounter > 1)) {
+            opened.value = !opened.value
+            focusedInCounter = 0
+            if (opened.value) {
+                focusedInCounter++
+            }
+        }
+    }
+
 </script>
 
 <template>
-    <div @focusin="opened = !opened" 
-    @focusout="opened = !closable" 
-    @mouseover="closable = false" 
-    @mouseleave="closable = true" 
+    <div 
+    @click="clicked"
+    @focusin="focusIn" 
+    @focusout="focusOut" 
+    @mouseover="closeable = false" 
+    @mouseleave="closeable = true" 
     class="relative inline-block border-box border border-gray-300">
 
         <button class="inline px-3 py-1 w-full " :class="{
