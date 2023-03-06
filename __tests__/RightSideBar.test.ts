@@ -1,8 +1,8 @@
-import RightSideBar from "../nuxt/components/RightSideBar.vue"
+import RightSideBar from "../components/RightSideBar.vue"
 import { mount } from '@vue/test-utils'
-import { test, describe, expect } from 'vitest'
+import { test, expect } from 'vitest'
 
-test("Test for download button", () => {
+test("Test for RightSideBar showing download button", () => {
     let testMap = new Map()
     testMap.set("name", "Jane Doe")
     testMap.set("Age", "51")
@@ -23,5 +23,5 @@ test("Test for download button", () => {
     expect(wrapper.text()).toContain("51")
     expect(wrapper.text()).toContain("Hello")
     expect(wrapper.text()).toContain("51")
-    expect(wrapper.html()).toContain('<i class="fa-solid fa-download" />')
+    expect(wrapper.html().includes("fa-solid fa-download")).toBeTruthy()
 })
