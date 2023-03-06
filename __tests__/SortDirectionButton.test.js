@@ -1,8 +1,7 @@
 import { SortDirectionButton } from "~~/.nuxt/components"
 import { mount } from '@vue/test-utils'
-import { mount, shallowMount  } from '@vue/test-utils'
 
-import {expect, describe, jest, test} from '@jest/globals';
+// import {expect, describe, jest, test} from '@jest/globals';
 
 test("Test for table cell", () => {
     const wrapperAsc = mount(SortDirectionButton, {

@@ -1,6 +1,6 @@
 // import { JobStore } from "~/stores/JobStore"
 const JobStore = require("~/stores/JobStore")
-import {expect, describe, jest, test} from '@jest/globals';
+// import {expect, describe, jest, test} from '@jest/globals';
 import  Job  from '~/objects/job'
 
 test("Test for Job Store", () => {

@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="h-screen fixed">
+    <div class="h-screen w-screen fixed">
         <TopBar />
         <div class="flex h-full">
             <Navigation class="w-1/6 h-full" />

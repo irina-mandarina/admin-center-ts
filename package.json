@@ -6,7 +6,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -16,11 +18,13 @@
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@types/jest": "^29.4.0",
+    "@vitest/ui": "^0.29.2",
     "@vue/test-utils": "^2.3.0",
     "babel-jest": "^29.4.3",
     "jest": "^29.4.3",
     "nuxt": "^3.2.3",
-    "ts-jest": "^29.0.5"
+    "ts-jest": "^29.0.5",
+    "vitest": "^0.29.2"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.21.0",

@@ -1,10 +1,9 @@
-import { RightSideBar } from "~~/.nuxt/components"
+// const RightSideBar =  require("~~/.nuxt/components")
 import { mount } from '@vue/test-utils'
-import { mount, shallowMount  } from '@vue/test-utils'
 
-import {expect, describe, jest, test} from '@jest/globals';
+// import {expect, describe, jest, test} from '@jest/globals';
 
-test("Test for progress blue bubble", () => {
+test("Test for download button", () => {
     let testMap = new Map()
     testMap.set("name", "Jane Doe")
     testMap.set("Age", "51")

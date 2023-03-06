@@ -2,7 +2,7 @@ import { TableCell } from "~~/.nuxt/components"
 
 import { mount, shallowMount  } from '@vue/test-utils'
 
-import {expect, describe, jest, test} from '@jest/globals';
+// import {expect, describe, jest, test} from '@jest/globals';
 test("Test for progress blue bubble", () => {
     const wrapperInProgress = mount(TableCell, {
         props: {
