@@ -1,7 +1,6 @@
-// const RightSideBar =  require("~~/.nuxt/components")
+import RightSideBar from "../nuxt/components/RightSideBar.vue"
 import { mount } from '@vue/test-utils'
-
-// import {expect, describe, jest, test} from '@jest/globals';
+import { test, describe, expect } from 'vitest'
 
 test("Test for download button", () => {
     let testMap = new Map()

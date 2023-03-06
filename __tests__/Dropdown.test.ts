@@ -1,8 +1,8 @@
-const Dropdown =  require('~/components/Dropdown.vue')
+// const Dropdown =  require('../components/Dropdown.vue')
+import Dropdown  from "../components/Dropdown.vue"
 import { mount, shallowMount  } from '@vue/test-utils'
-// import {jest} from '@jest/globals';
-// import.meta.jest.useFakeTimers();
-// import {expect, describe, jest, test} from '@jest/globals';
+import { test, describe, expect } from 'vitest'
+
 describe('', () => {
     test("Test for dropdown", () => {
         const wrapper = mount(Dropdown, {

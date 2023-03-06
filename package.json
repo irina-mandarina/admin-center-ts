@@ -28,8 +28,11 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.21.0",
+    "@nuxt/test-utils": "^3.2.3",
     "@pinia/nuxt": "^0.4.7",
     "@types/lodash.debounce": "^4.0.7",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "jsdom": "^21.1.0",
     "pinia": "^2.0.32"
   },
   "jest": {

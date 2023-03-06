@@ -1,9 +1,8 @@
-import { SortDirectionButton } from "~~/.nuxt/components"
+import SortDirectionButton from "../components/SortDirectionButton.vue"
 import { mount } from '@vue/test-utils'
+import { test, expect } from 'vitest'
 
-// import {expect, describe, jest, test} from '@jest/globals';
-
-test("Test for table cell", () => {
+test("Test for changing the sort direction button on click", () => {
     const wrapperAsc = mount(SortDirectionButton, {
         props: {
             sortDir: "asc"

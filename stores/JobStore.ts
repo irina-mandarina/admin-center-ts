@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { JobType } from '~/objects/jobType'
 import { StatusType } from '~/objects/statusType'
 import { ResourceType } from '~/objects/resourceType'
-import { Job } from '~/objects/job'
+import Job from '~/objects/job'
 
 // const defineStore = require('pinia')
 
@@ -10,7 +10,7 @@ type Jobs = {
     jobs: Job[];
   }
 
-export const JobStore = defineStore('jobStore', {
+const JobStore = defineStore('jobStore', {
     state: () =>
     ({
       jobs: [],
@@ -30,3 +30,5 @@ export const JobStore = defineStore('jobStore', {
         }   
     }
 })
+
+export default JobStore

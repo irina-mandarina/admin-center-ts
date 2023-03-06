@@ -1,8 +1,9 @@
-import { TableCell } from "~~/.nuxt/components"
+import TableCell from "../components/TableCell.vue"
 
 import { mount, shallowMount  } from '@vue/test-utils'
+import { test, describe, expect } from 'vitest'
 
-// import {expect, describe, jest, test} from '@jest/globals';
+
 test("Test for progress blue bubble", () => {
     const wrapperInProgress = mount(TableCell, {
         props: {
@@ -44,14 +45,15 @@ test("Test for cancelled yellow bubble", () => {
 })
 
 test("Test for normal table cell", () => {
-    const wrapperCancelled = mount(TableCell, {
+    const wrapper = mount(TableCell, {
         props: {
             data: "some text"
         }
     })
-    expect(wrapperCancelled.text()).toContain('some text')
-    expect(wrapperCancelled.find('text-yellow-900')).toBe(false)
-    expect(wrapperCancelled.find('text-green-900')).toBe(false)
-    expect(wrapperCancelled.find('text-blue-900')).toBe(false)
-    expect(wrapperCancelled.find('text-red-900')).toBe(false)
+    debugger
+    expect(wrapper.text()).toContain('some text')
+    expect(wrapper.html().includes('text-yellow-900')).toBe(false)
+    expect(wrapper.html().includes('text-green-900')).toBe(false)
+    expect(wrapper.html().includes('text-blue-900')).toBe(false)
+    expect(wrapper.html().includes('text-red-900')).toBe(false)
 })
