@@ -3,8 +3,15 @@ import Dropdown  from "../components/Dropdown.vue"
 import { mount, shallowMount  } from '@vue/test-utils'
 import { test, expect } from 'vitest'
 
-test("Test for dropdown showing items on click", () => {
+
+const div = document.createElement('div')
+div.id = 'root'
+document.body.appendChild(div)
+
+
+test("Test for dropdown showing items on focus in", async () => {
     const wrapper = mount(Dropdown, {
+        attachTo: '#root',
         props: {
             name: "Basket",
             selectKey: "basket",
@@ -14,9 +21,9 @@ test("Test for dropdown showing items on click", () => {
     })
 
     expect(wrapper.text()).toContain('Basket')
-    // const t = wrapper.html()
-    wrapper.find('button').trigger('focus-in')
-const wem = wrapper.emitted()
-
-    expect(wem).toContain('apple')
+    const a = wrapper.html()
+    const b = wrapper.find('button')
+    await b.trigger('focus-in')
+    const d = wrapper.html()
+    expect(wrapper.text()).toContain('apple')
 })    
